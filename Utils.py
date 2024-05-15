@@ -1,7 +1,5 @@
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
-from Crypto.Util.Padding import pad,unpad
-
 
 class AES_CBC_NoPadding:
     def __init__(self):
@@ -19,12 +17,6 @@ class AES_CBC_NoPadding:
         decryptor = cipher.decryptor()
         decrypted_text = decryptor.update(ciphertext) + decryptor.finalize()
         return decrypted_text
-
-
-
-
-
-
 
 if __name__ == '__main__':
     aes_cbc = AES_CBC_NoPadding()
