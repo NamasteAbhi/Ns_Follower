@@ -15,5 +15,6 @@ Before you begin, ensure you have:
 Setup your environment to run Ns_Follower by installing the necessary dependencies:
 ```bash
 pip install requests
+pip install pycrypto
 pip install pycryptodomex  # Optional, for specific cryptographic functionalities
 pip install pycryptodome   # For cryptographic functionalities
