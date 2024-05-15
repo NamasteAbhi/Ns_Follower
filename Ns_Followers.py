@@ -16,11 +16,6 @@ class Ns_Followers:
         self._session='...' #Enter SessionID Here
 
         self.__Pk=self.__userid.encode()+b'*'+str(random.randint(111,999)).encode()
-
-
-
-
-
         self.__Ip=os.urandom(8).hex().encode()+b'*'+str(random.randint(111,999)).encode()
         self.__Device=b'model:'+str(random.randint(111111,999999)).encode()+b'MI|id:QP1A.190711.020|manufacture:Xiaomi|brand:POCO|type:user|user:builder|base:1|sdk:REL|board: angelicain|host:c5-miui-ota-bd238.bj|release:10|product:angelicain_in|fingerprint:POCO/angelicain_in/angelicain:10/QP1A.190711.020/V12.0.3.0.QCRINRF:user/release-keys|hardware:mt6765|device:angelicain*'+str(random.randint(111,999)).encode()
 
