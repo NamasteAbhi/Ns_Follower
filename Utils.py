@@ -1,6 +1,5 @@
-from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from cryptography.hazmat.backends import default_backend
 from Crypto.Util.Padding import pad
+from Crypto.Cipher import AES
 
 
 class AES_CBC_NoPadding:
@@ -9,15 +8,13 @@ class AES_CBC_NoPadding:
         self.iv = bytes.fromhex('665232347a6d7549527163304430576a')
 
     def encrypt(self, plaintext):
-        cipher = Cipher(algorithms.AES(self.key), modes.CBC(self.iv), backend=default_backend())
-        encryptor = cipher.encryptor()
-        ciphertext = encryptor.update(pad(plaintext,block_size=16)) + encryptor.finalize()
+        cipher = AES.new(self.key, AES.MODE_CBC, self.iv)
+        ciphertext = cipher.encrypt(pad(plaintext,AES.block_size))
         return ciphertext
 
     def decrypt(self, ciphertext):
-        cipher = Cipher(algorithms.AES(self.key), modes.CBC(self.iv), backend=default_backend())
-        decryptor = cipher.decryptor()
-        decrypted_text = decryptor.update(ciphertext) + decryptor.finalize()
+        cipher = AES.new(self.key, AES.MODE_CBC, self.iv)
+        decrypted_text = cipher.decrypt(ciphertext)
         return decrypted_text.rstrip(b'\x00')
 
 
