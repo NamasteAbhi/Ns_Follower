@@ -9,7 +9,7 @@ class AES_CBC_NoPadding:
     def encrypt(self, plaintext):
         cipher = Cipher(algorithms.AES(self.key), modes.CBC(self.iv), backend=default_backend())
         encryptor = cipher.encryptor()
-        ciphertext = encryptor.update(pad(plaintext,block_size=16)) + encryptor.finalize()
+        ciphertext = encryptor.update(plaintext)) + encryptor.finalize()
         return ciphertext
 
     def decrypt(self, ciphertext):
